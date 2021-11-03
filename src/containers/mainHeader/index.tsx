@@ -1,12 +1,11 @@
-import Title from 'components/Title'
+import { Title } from '../../components/title'
 import React from 'react'
 import { Container } from './styles'
 
-const MainHeader = () => {
+export const MainHeader: React.FC = () => {
   return (
     <Container>
       <Title>My test App</Title>
     </Container>
   )
 }
-export default MainHeader

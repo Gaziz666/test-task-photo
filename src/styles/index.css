@@ -1,4 +1,4 @@
-@import 'fonts.css';
+@import './fonts.css';
 
 html {
   box-sizing: border-box;
@@ -17,7 +17,7 @@ html {
 }
 
 body {
-  color: #1F3246;
-  background-color: #FFFFFF;
+  color: #1f3246;
+  background-color: #ffffff;
   font-family: 'Roboto-Regular', 'Arial', sans-serif;
 }

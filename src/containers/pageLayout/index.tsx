@@ -1,8 +1,12 @@
 import React from 'react'
 import { Container, Header, Body } from './styles'
-import MainHeader from 'containers/mainHeader'
+import { MainHeader } from '../../containers/mainHeader'
 
-const PageLayout = ({ children }) => {
+interface IPageLayout {
+  children: React.ReactNode
+}
+
+export const PageLayout: React.FC = ({ children }) => {
   return (
     <Container>
       <Header>
@@ -12,5 +16,3 @@ const PageLayout = ({ children }) => {
     </Container>
   )
 }
-
-export default PageLayout

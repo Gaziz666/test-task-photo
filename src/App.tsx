@@ -1,11 +1,13 @@
-import AlbumPage from 'pages/album'
+import AlbumPage from './pages/album'
 import React, { useEffect, useState } from 'react'
 import { Switch, Route, Redirect } from 'react-router-dom'
+import { IPhoto } from './@types/module'
+import { PhotoContext } from './contexts/photoContext'
 
 const url = 'https://jsonplaceholder.typicode.com/photos'
 
-const App = () => {
-  const [contextPhoto, setContextPhoto] = useState(null)
+const App: React.FC = () => {
+  const [contextPhoto, setContextPhoto] = useState<IPhoto[] | []>([])
 
   useEffect(() => {
     const fetchData = async () => {
@@ -27,10 +29,12 @@ const App = () => {
   }, [])
 
   return (
-    <Switch>
-      <Route exact path="/" render={() => <Redirect to="/album" />} />
-      <Route exact path="/album" component={AlbumPage} />
-    </Switch>
+    <PhotoContext.Provider value={{ data: contextPhoto }}>
+      <Switch>
+        <Route exact path="/" render={() => <Redirect to="/album" />} />
+        <Route exact path="/album" component={AlbumPage} />
+      </Switch>
+    </PhotoContext.Provider>
   )
 }
 
