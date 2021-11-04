@@ -8,7 +8,7 @@ export const PhotoSearch = () => {
   const handleChange = (e: React.FormEvent<HTMLInputElement>): void => {
     setValue(e.currentTarget.value)
   }
-  const { setContextPhoto, allPhoto } = useContext(PhotoContext)
+  const { setContextPhoto, allPhoto, setPageNumber } = useContext(PhotoContext)
 
   useEffect(() => {
     if (value === '') {
@@ -18,6 +18,7 @@ export const PhotoSearch = () => {
         return allPhoto!.filter((item) => item.albumId === +value)
       })
     }
+    setPageNumber!(0)
   }, [value])
 
   return (

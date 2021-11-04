@@ -3,8 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { Switch, Route, Redirect } from 'react-router-dom'
 import { IPhoto } from './@types/module'
 import { PhotoContext } from './contexts/photoContext'
-
-const url = 'https://jsonplaceholder.typicode.com/photos'
+import { baseUrl } from './config/config'
 
 const App: React.FC = () => {
   const [contextPhoto, setContextPhoto] = useState<IPhoto[] | []>([])
@@ -15,7 +14,7 @@ const App: React.FC = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(url, {
+        const response = await fetch(baseUrl, {
           method: 'GET'
         })
 
@@ -47,7 +46,7 @@ const App: React.FC = () => {
     >
       <Switch>
         <Route exact path="/" render={() => <Redirect to="/album" />} />
-        <Route exact path="/album" component={AlbumPage} />
+        <Route path="/album" component={AlbumPage} />
       </Switch>
     </PhotoContext.Provider>
   )

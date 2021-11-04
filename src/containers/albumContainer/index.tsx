@@ -3,6 +3,7 @@ import { Container } from './styles'
 import { PhotoContext } from '../../contexts/photoContext'
 import { ModalDelete } from '../modalDelete'
 import { ImageBoxContainer } from '../imageBoxContainer'
+import { ModalView } from '../modalView'
 
 export const AlbumContainer: React.FC = () => {
   const { contextPhoto, boxCount, pageNumber } = useContext(PhotoContext)
@@ -36,6 +37,7 @@ export const AlbumContainer: React.FC = () => {
         onClose={setDeleteModaLIsOpen}
         entityId={entityId}
       />
+      <ModalView />
     </>
   )
 }
