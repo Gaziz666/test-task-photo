@@ -1,23 +1,41 @@
-import React, { useContext } from 'react'
-import { ImageBox } from '../../components/imageBox'
+import React, { useContext, useState } from 'react'
 import { Container } from './styles'
 import { PhotoContext } from '../../contexts/photoContext'
+import { ModalDelete } from '../modalDelete'
+import { ImageBoxContainer } from '../imageBoxContainer'
 
 export const AlbumContainer: React.FC = () => {
-  const photoContext = useContext(PhotoContext)
+  const { contextPhoto, boxCount, pageNumber } = useContext(PhotoContext)
+  const [deleteModalIsOpen, setDeleteModaLIsOpen] = useState<boolean>(false)
+  const [entityId, setEntityId] = useState<number>(0)
 
   return (
-    <Container>
-      {photoContext.data!.map((item) => {
-        return (
-          <ImageBox
-            url={item.thumbnailUrl}
-            id={item.id}
-            key={item.id}
-            title={item.title}
-          />
-        )
-      })}
-    </Container>
+    <>
+      <Container>
+        {contextPhoto!.map((item, index) => {
+          if (
+            index >= pageNumber * boxCount &&
+            index < (pageNumber + 1) * boxCount
+          ) {
+            return (
+              <ImageBoxContainer
+                url={item.thumbnailUrl}
+                id={item.id}
+                key={item.id}
+                title={item.title}
+                openDeleteModal={setDeleteModaLIsOpen}
+                setEntityId={setEntityId}
+              />
+            )
+          }
+          return
+        })}
+      </Container>
+      <ModalDelete
+        isOpen={deleteModalIsOpen}
+        onClose={setDeleteModaLIsOpen}
+        entityId={entityId}
+      />
+    </>
   )
 }

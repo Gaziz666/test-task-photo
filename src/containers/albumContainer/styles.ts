@@ -3,7 +3,10 @@ import styled from 'styled-components'
 export const Container = styled.div`
   display: flex;
   flex-wrap: wrap;
-  margin: 0 1rem 1rem;
+  justify-content: center;
+  width: 100%;
+  height: calc(100vh - 10rem);
+  overflow: auto;
 
   > div {
     margin: 1rem;

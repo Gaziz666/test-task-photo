@@ -1,15 +1,17 @@
 import React from 'react'
-import { Title } from '../../components/title'
 import { AlbumContainer } from '../../containers/albumContainer'
+import { MUIPagination } from '../../containers/muiPagination'
 import { PageHeader } from '../../containers/pageHeader'
+import { PhotoSearch } from '../../containers/photoSearch'
 
-const Album = () => {
+const Album: React.FC = () => {
   return (
     <>
       <PageHeader>
-        <Title as="h2">My album</Title>
+        <PhotoSearch />
       </PageHeader>
       <AlbumContainer />
+      <MUIPagination />
     </>
   )
 }
