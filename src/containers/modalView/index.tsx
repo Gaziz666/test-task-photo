@@ -1,16 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import { Modal } from '../../components/modal/modal'
+import { Modal } from '../../components/modal'
 import { Title } from '../../components/title'
 import CardMedia from '@mui/material/CardMedia'
 import { useParams, useHistory } from 'react-router-dom'
 import { baseUrl } from '../../config/config'
 import { IPhoto } from '../../@types/module'
-
-type IModalDelete = {
-  isOpen: boolean
-  entityId: number
-  onClose: React.Dispatch<React.SetStateAction<boolean>>
-}
 
 type IParams = {
   photoId: string

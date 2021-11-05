@@ -29,7 +29,6 @@ export const AlbumContainer: React.FC = () => {
               />
             )
           }
-          return
         })}
       </Container>
       <ModalDelete

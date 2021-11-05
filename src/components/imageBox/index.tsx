@@ -1,5 +1,4 @@
 import React from 'react'
-import { Wrapper } from './styles'
 
 import Card from '@mui/material/Card'
 import CardContent from '@mui/material/CardContent'

@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { Button } from '../../components/button'
-import { Modal } from '../../components/modal/modal'
+import { Modal } from '../../components/modal'
 import { Title } from '../../components/title'
 import { ButtonWrapper } from './styles'
 import { PhotoContext } from '../../contexts/photoContext'
